@@ -1,8 +1,8 @@
-import Image from "next/image";
+
 
 export default function Home() {
-  console.log("who am i?");
+ console.log("what am i doning here...");  
   return (
-    <h1>Hello next.js</h1>
+    <h1 className="text-3xl">Welcome next.js</h1>
   );
 }
