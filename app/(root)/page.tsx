@@ -1,5 +1,3 @@
-
-
 export default function Home() {
  console.log("what am i doning here...");  
   return (
