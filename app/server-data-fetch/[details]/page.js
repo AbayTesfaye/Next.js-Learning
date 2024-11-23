@@ -18,6 +18,7 @@ export default async function UserDetails({params}){
             <p>{userDetails.email}</p>
             <p>{userDetails.phone}</p>
             <p>{userDetails.birthDate}</p>
+            <p>{userDetails.password}</p>
         </div>
     </div>
 }
