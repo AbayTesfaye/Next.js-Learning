@@ -1,33 +1,37 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import useSWR from 'swr';
+
+const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function ClientSideDataFetching() {
-    const [loading, setLoading] = useState(true);
-    const [users, setUsers] = useState([]);
+    // const [loading, setLoading] = useState(true);
+    // const [users, setUsers] = useState([]);
 
-    async function fetchListOfUsers() {
-        try {
-            setLoading(true);
-            const apiResponse = await fetch('https://dummyjson.com/users');
-            const result = await apiResponse.json();
+    // async function fetchListOfUsers() {
+    //     try {
+    //         const apiResponse = await fetch('https://dummyjson.com/users');
+    //         const result = await apiResponse.json();
 
-            if (result.users) {
-                setUsers(result.users);
-                setLoading(false);
-            }
-        } catch (error) {
-            console.error('Error fetching users:', error);
-            setUsers([]);
-            setLoading(false);
-        }
-    }
+    //         if (result.users) {
+    //             setUsers(result.users);
+    //             setLoading(false);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error fetching users:', error);
+    //         setUsers([]);
+    //         setLoading(false);
+    //     }
+    // }
 
-    useEffect(() => {
-        fetchListOfUsers();
-    }, []); // Empty dependency array ensures it runs once on mount
+    // useEffect(() => {
+    //     fetchListOfUsers();
+    // }, []);
+    const { data, error, isLoading } = useSWR('https://dummyjson.com/users', fetcher);
 
-    if (loading) {
+    if (error) return <div>Failed to load data.</div>;
+
+    if (isLoading || !data) {
         return <h3 className="font-extrabold">Loading! Please wait!</h3>;
     }
 
@@ -35,8 +39,8 @@ export default function ClientSideDataFetching() {
         <div>
             <h1>Client-side Data Fetching!</h1>
             <ul>
-                {users.length > 0 ? (
-                    users.map((user) => (
+                {data.users && data.users.length > 0 ? (
+                    data.users.map((user) => (
                         <li key={user.id} className="mt-5 cursor-pointer">
                             {user.firstName} {user.lastName}
                         </li>
