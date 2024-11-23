@@ -1,5 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Loading from "./loading";
+import { Suspense } from "react";
+
 
 // Import the Metadata type as a regular JavaScript import
 import { Metadata } from "next"; // This can be removed if Metadata is not used directly in your JS project.
@@ -27,7 +30,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Suspense fallback={<Loading/>}>{children}</Suspense>
       </body>
     </html>
   );
