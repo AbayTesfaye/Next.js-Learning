@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Counter from "./counter";
 
 // Import the Metadata type as a regular JavaScript import
 import { Metadata } from "next"; // This can be removed if Metadata is not used directly in your JS project.
@@ -27,7 +28,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <nav>This is navigation bar</nav>
         {children}
+        <Counter />
+        <footer>This is footer</footer>
       </body>
     </html>
   );

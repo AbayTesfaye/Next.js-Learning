@@ -5,14 +5,8 @@ import { useRouter } from "next/navigation"; // Corrected import for useRouter i
 import React from "react";
 
 export default function Home() {
-  const router = useRouter();
-
-  function handleRouter() {
-    router.push("/product");
-  }
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-3xl font-bold mb-6">Welcome to Next.js 2024</h1>
     </div>
   );
