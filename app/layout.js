@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Counter from "./counter";
 
 // Import the Metadata type as a regular JavaScript import
 import { Metadata } from "next"; // This can be removed if Metadata is not used directly in your JS project.
