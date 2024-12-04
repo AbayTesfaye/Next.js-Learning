@@ -1,9 +1,15 @@
+import Link from "next/link";
+
 function Product({ params }) {
-  console.log(params);
+  const productId = 100;
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <h1>Welcome to product page!</h1>
-      <p>{params.product}</p>
+      <Link href="/product/1">Product 1</Link>
+      <Link href="/product/2">Product 2</Link>
+      <Link href="/product/3">Product 3</Link>
+      <Link href={`/product/${productId}`}>Product {productId}</Link>
+      <Link href="/">Back to home</Link>
     </div>
   );
 }
