@@ -1,8 +1,6 @@
 "use client";
-
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import Link from "next/link";
 const navLinks = [
   { name: "Login", href: "/login" },
   { name: "Register", href: "/register" },
@@ -11,7 +9,7 @@ const navLinks = [
 
 export default function AuthLayout({ children }) {
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <>
       {navLinks.map((link) => {
