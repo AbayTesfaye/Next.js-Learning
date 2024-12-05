@@ -1,7 +1,7 @@
 import Card from "../../components/card";
 
 function Revenue() {
-  return <Card>Revenue slot!</Card>;
+  return <Card>Revenue</Card>;
 }
 
 export default Revenue;
