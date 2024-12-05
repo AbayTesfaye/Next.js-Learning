@@ -1,5 +1,7 @@
-function DashboardLayout({ children, users, revenue, notifications }) {
-  return (
+function DashboardLayout({ children, users, revenue, notifications, login }) {
+  const isLoggedIn = true; // Simulating a logged-out state
+
+  return isLoggedIn ? (
     <div>
       <div>{children}</div>
       <div className="flex">
@@ -10,6 +12,8 @@ function DashboardLayout({ children, users, revenue, notifications }) {
         <div className="flex flex-1">{notifications}</div>
       </div>
     </div>
+  ) : (
+    <div>{login}</div> // Correctly wraps the fallback content in a valid JSX structure
   );
 }
 
