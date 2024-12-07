@@ -23,17 +23,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-gray-100 text-gray-900">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col items-center justify-center`}
       >
-        <header className="w-full h-[50px] bg-blue-300 border-2 border-blue-300">
-          HEADER
-        </header>
-        {children}
-        <footer className="w-full h-[50px] bg-gray-300 border-2 border-gray-300">
-          FOOTER
-        </footer>
+        <main className="container mx-auto px-4 py-8">{children}</main>
       </body>
     </html>
   );
