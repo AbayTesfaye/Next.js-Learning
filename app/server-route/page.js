@@ -1,4 +1,5 @@
 import React from "react";
+import ImageSlider from "../components/imageSlider";
 import { ServerSideFunction } from "../utils/server-utils";
 export default function ServerRoutePage() {
   const result = ServerSideFunction();
@@ -6,6 +7,7 @@ export default function ServerRoutePage() {
     <div>
       <h1>serverRoutePage</h1>
       <p>{result}</p>
+      <ImageSlider />
     </div>
   );
 }
