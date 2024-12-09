@@ -3,8 +3,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ClientSideFunction from "../utils/client-utils";
 
 const SimpleSlider = () => {
+  const client = ClientSideFunction();
   const settings = {
     dots: true,
     infinite: true,
@@ -15,6 +17,7 @@ const SimpleSlider = () => {
 
   return (
     <div style={{ width: "80%", margin: "auto" }}>
+      <p>{client}</p>
       <Slider {...settings}>
         <div>
           <img
